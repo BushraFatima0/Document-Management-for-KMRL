@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scan Documents - KMRL DocRecords</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: #f8fafc;
+    }
+
+    /* Scan container */
+    .scan-container {
+      max-width: 700px;
+      margin: 3rem auto;
+      background: #ffffff;
+      padding: 2.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    }
+
+    .scan-container h2 {
+      margin-bottom: 1.5rem;
+      color: #1e293b;
+      text-align: center;
+    }
+
+    /* Scan Box */
+    .scan-box {
+      border: 2px dashed #16a34a; /* green to differentiate */
+      border-radius: 0.8rem;
+      padding: 2.5rem;
+      text-align: center;
+      color: #64748b;
+      background: #f9fafb;
+      cursor: pointer;
+      transition: background 0.2s, border 0.2s;
+
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      margin-top: 1rem;
+    }
+
+    .scan-box:hover {
+      background: #f1fdf5;
+      border-color: #15803d;
+    }
+
+    /* Form Grid */
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .form-grid input,
+    .form-grid select {
+      padding: 0.9rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 0.5rem;
+      width: 100%;
+    }
+
+    /* Button */
+    .scan-btn {
+      margin-top: 2rem;
+      padding: 1rem;
+      background: #16a34a;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 0.5rem;
+      width: 100%;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .scan-btn:hover {
+      background: #15803d;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <a href="index.html">KMRL DocRecords</a>
+    <div>
+      <a href="documents.html">Documents</a>
+      <a href="upload.html">Upload</a>
+      <a href="scan.html" class="active">Scan</a>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <div class="hero">
+    <h1>Scan Documents</h1>
+    <p>Digitize paper documents securely into KMRL DocRecords</p>
+  </div>
+
+  <!-- Scan Section -->
+  <div class="scan-container">
+    <h2>Scan a New Document</h2>
+
+    <!-- Scan Box -->
+    <label class="scan-box">
+      <p>🖨 Place your document in the scanner<br>and click below to start scanning</p>
+    </label>
+
+    <!-- Metadata Form -->
+    <div class="form-grid">
+      <input type="text" placeholder="Document Name">
+      <select>
+        <option>Select Department</option>
+        <option>HR</option>
+        <option>Finance</option>
+        <option>Operations</option>
+        <option>Technical</option>
+        <option>Engineering</option>
+        <option>Incidents</option>
+      </select>
+      <select>
+        <option>Select Year</option>
+        <option>2025</option>
+        <option>2024</option>
+        <option>2023</option>
+      </select>
+      <select>
+        <option>Select Month</option>
+        <option>January</option>
+        <option>February</option>
+        <option>March</option>
+        <option>April</option>
+        <option>May</option>
+        <option>June</option>
+        <option>July</option>
+        <option>August</option>
+        <option>September</option>
+        <option>October</option>
+        <option>November</option>
+        <option>December</option>
+      </select>
+      <input type="text" placeholder="Train ID (optional)">
+      <input type="text" placeholder="Location (optional)">
+    </div>
+
+    <button class="scan-btn">Scan Now</button>
+  </div>
+</body>
+</html>
