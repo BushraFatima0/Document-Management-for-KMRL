@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload Documents - KMRL DocRecords</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: #f8fafc;
+    }
+
+    /* Upload container */
+    .upload-container {
+      max-width: 700px;
+      margin: 3rem auto;
+      background: #ffffff;
+      padding: 2.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    }
+
+    .upload-container h2 {
+      margin-bottom: 1.5rem;
+      color: #1e293b;
+      text-align: center;
+    }
+
+    /* Upload Box */
+    .upload-box {
+      border: 2px dashed #2563eb;
+      border-radius: 0.8rem;
+      padding: 2.5rem;
+      text-align: center;
+      color: #64748b;
+      background: #f9fafb;
+      cursor: pointer;
+      transition: background 0.2s, border 0.2s;
+
+      /* 🔥 Make it span full width of parent */
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      margin-top: 1rem; /* optional: spacing from heading */
+    }
+
+    .upload-box:hover {
+      background: #f1f5f9;
+      border-color: #1d4ed8;
+    }
+
+    .upload-box input {
+      display: none;
+    }
+
+    /* Form Grid */
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .form-grid input,
+    .form-grid select {
+      padding: 0.9rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 0.5rem;
+      width: 100%;
+    }
+
+    /* Upload Button */
+    .submit-btn {
+      margin-top: 2rem;
+      padding: 1rem;
+      background: #2563eb;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 0.5rem;
+      width: 100%;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .submit-btn:hover {
+      background: #1d4ed8;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <a href="index.html">KMRL DocRecords</a>
+    <div>
+      <a href="documents.html">Documents</a>
+      <a href="upload.html" class="active">Upload</a>
+      <a href="scan.html">Scan</a>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <div class="hero">
+    <h1>Upload Documents</h1>
+    <p>Securely store and manage documents by department</p>
+  </div>
+
+  <!-- Upload Section -->
+  <div class="upload-container">
+    <h2>Upload a New Document</h2>
+
+    <!-- Drag & Drop -->
+    <label class="upload-box">
+      <input type="file" id="fileInput" multiple>
+      <p>📤 Drag & Drop your files here<br>or click to browse</p>
+    </label>
+
+    <!-- Metadata Form -->
+    <div class="form-grid">
+      <input type="text" placeholder="Document Name">
+      <select>
+        <option>Select Department</option>
+        <option>HR</option>
+        <option>Finance</option>
+        <option>Operations</option>
+        <option>Technical</option>
+        <option>Engineering</option>
+        <option>Incidents</option>
+      </select>
+      <select>
+        <option>Select Year</option>
+        <option>2025</option>
+        <option>2024</option>
+        <option>2023</option>
+      </select>
+      <select>
+        <option>Select Month</option>
+        <option>January</option>
+        <option>February</option>
+        <option>March</option>
+        <option>April</option>
+        <option>May</option>
+        <option>June</option>
+        <option>July</option>
+        <option>August</option>
+        <option>September</option>
+        <option>October</option>
+        <option>November</option>
+        <option>December</option>
+      </select>
+      <input type="text" placeholder="Train ID (optional)">
+      <input type="text" placeholder="Location (optional)">
+    </div>
+
+    <button class="submit-btn">Upload Document</button>
+  </div>
+
+  <!-- Script -->
+  <script>
+    const fileInput = document.getElementById("fileInput");
+    const uploadBox = document.querySelector(".upload-box");
+
+    uploadBox.addEventListener("click", () => fileInput.click());
+
+    fileInput.addEventListener("change", () => {
+      if (fileInput.files.length > 0) {
+        uploadBox.querySelector("p").innerText =
+          fileInput.files.length + " file(s) selected";
+      }
+    });
+  </script>
+</body>
+</html>
