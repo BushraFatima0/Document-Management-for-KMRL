@@ -7,6 +7,11 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <script>
+    if (!localStorage.getItem('loggedIn')) {
+      window.location.href = 'login.html';
+    }
+  </script>
   <header class="navbar">
     <div class="logo">KMRL Docs</div>
     <nav>
@@ -44,3 +49,5 @@
   </main>
 </body>
 </html>
+
+
