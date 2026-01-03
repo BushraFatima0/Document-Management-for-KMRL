@@ -64,6 +64,11 @@
   </style>
 </head>
 <body>
+  <script>
+    if (!localStorage.getItem('loggedIn')) {
+      window.location.href = 'login.html';
+    }
+  </script>
   <!-- Navbar -->
   <div class="navbar">
     <a href="index.html">KMRL DocRecords</a>
@@ -191,3 +196,4 @@
   </script>
 </body>
 </html>
+
