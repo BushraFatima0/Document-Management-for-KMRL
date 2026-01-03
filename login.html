@@ -7,34 +7,44 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="navbar">
-    <a href="index.html">KMRL DocRecords</a>
-    <div>
-      <a href="upload.html">Upload</a>
-      <a href="scan.html">Scan</a>
-      <div class="dropdown">
-        <a href="#">Departments ▾</a>
-        <div class="dropdown-content">
-          <a href="hr.html">HR</a>
-          <a href="operations.html">Operations</a>
-          <a href="finance.html">Finance</a>
-          <a href="technical.html">Technical</a>
+  <script>
+    if (localStorage.getItem('loggedIn')) {
+      window.location.href = 'index.html';
+    }
+  </script>
+  <div class="login-container">
+    <div class="login-form">
+      <h1>KMRL DocRecords Login</h1>
+      <p>Please enter your credentials to access the system.</p>
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required>
         </div>
-      </div>
-      <a href="login.html">Logout</a>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+        <button type="submit">Login</button>
+      </form>
+      <div id="errorMessage" class="error"></div>
     </div>
   </div>
 
-  <div class="hero">
-    <h1>Welcome to KMRL DocRecords</h1>
-    <p>Secure Document Management for Kochi Metro Employees</p>
-  </div>
-
-  <div class="cards">
-    <a href="hr.html" class="card">HR Records</a>
-    <a href="operations.html" class="card">Operations Logs</a>
-    <a href="finance.html" class="card">Finance Files</a>
-    <a href="technical.html" class="card">Technical Docs</a>
-  </div>
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      // Hardcoded credentials for demo
+      if (username === 'admin' && password === 'password') {
+        localStorage.setItem('loggedIn', 'true');
+        window.location.href = 'index.html';
+      } else {
+        document.getElementById('errorMessage').textContent = 'Invalid username or password.';
+      }
+    });
+  </script>
 </body>
 </html>
+
